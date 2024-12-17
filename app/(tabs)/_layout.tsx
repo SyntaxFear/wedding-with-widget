@@ -1,43 +1,87 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
-
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { Tabs } from "expo-router";
+import { MaterialIcons } from "@expo/vector-icons";
+import { useTranslation } from "react-i18next";
+import { HeaderLanguageSelector } from "../components/HeaderLanguageSelector";
+import { View } from "react-native";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const { t } = useTranslation();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
+        tabBarActiveTintColor: "#FF4B91",
+        tabBarInactiveTintColor: "#94A3B8",
+        tabBarStyle: {
+          backgroundColor: "white",
+          borderTopWidth: 1,
+          borderTopColor: "#E2E8F0",
+          elevation: 0,
+          shadowOpacity: 0,
+        },
+        headerStyle: {
+          backgroundColor: "white",
+          elevation: 0,
+          shadowOpacity: 0,
+        },
+        headerTintColor: "#1F2937",
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: t('tabs.home'),
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="dashboard" size={24} color={color} />
+          ),
+          headerRight: () => (
+            <View className="mr-4">
+              <HeaderLanguageSelector />
+            </View>
+          ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="timeline"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: t('tabs.timeline'),
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="event" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="guests"
+        options={{
+          title: t('tabs.guests'),
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="people" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="budget"
+        options={{
+          title: t('tabs.budget'),
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons
+              name="account-balance-wallet"
+              size={24}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="vendors"
+        options={{
+          title: t('tabs.vendors'),
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="store" size={24} color={color} />
+          ),
         }}
       />
     </Tabs>

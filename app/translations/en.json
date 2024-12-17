@@ -1,0 +1,14 @@
+{
+  "common": {
+    "language": "Language",
+    "english": "English",
+    "georgian": "Georgian"
+  },
+  "tabs": {
+    "home": "Dashboard",
+    "budget": "Budget",
+    "timeline": "Timeline",
+    "guests": "Guests",
+    "vendors": "Vendors"
+  }
+}

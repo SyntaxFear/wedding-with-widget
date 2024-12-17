@@ -1,0 +1,14 @@
+{
+  "common": {
+    "language": "ენა",
+    "english": "ინგლისური",
+    "georgian": "ქართული"
+  },
+  "tabs": {
+    "home": "მთავარი",
+    "budget": "ბიუჯეტი",
+    "timeline": "განრიგი",
+    "guests": "სტუმრები",
+    "vendors": "მომწოდებლები"
+  }
+}
