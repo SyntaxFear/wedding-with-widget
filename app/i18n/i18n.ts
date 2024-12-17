@@ -52,7 +52,6 @@ i18n
     },
   });
 
-// Function to change language
 export const changeLanguage = async (language: LanguageCode) => {
   await i18n.changeLanguage(language);
   await languageDetector.cacheUserLanguage(language);
