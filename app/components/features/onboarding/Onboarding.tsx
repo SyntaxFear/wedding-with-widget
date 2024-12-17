@@ -136,7 +136,7 @@ export function Onboarding({ onComplete, onSkip }: OnboardingProps) {
 
       <View className="flex-1">
         <View className="flex-row justify-between items-center px-4 pt-14 pb-4">
-          <LanguageSelector variant="minimal" />
+          <LanguageSelector />
           <TouchableOpacity
             onPress={onSkip}
             className="flex-row items-center py-2 px-4 rounded-xl bg-white/90 backdrop-blur-md"

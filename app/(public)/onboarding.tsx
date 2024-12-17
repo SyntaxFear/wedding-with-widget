@@ -15,9 +15,7 @@ export default function OnboardingScreen() {
       const onBackPress = () => {
         return true; 
       };
-
       BackHandler.addEventListener('hardwareBackPress', onBackPress);
-
       return () => {
         BackHandler.removeEventListener('hardwareBackPress', onBackPress);
       };
